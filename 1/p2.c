@@ -1,6 +1,5 @@
 #include <string.h>
-#include "stdio.h"
-#include "stdlib.h"
+#include "../lib/file.h"
 
 int charToInt(const char chr) {
   int num = 0;
@@ -124,15 +123,7 @@ int lineToNumBackwards(const char* line) {
 }
 
 int main(void) {
-  FILE* fp;
-  char* line = NULL;
-  size_t len = 0;
-  ssize_t read;
-  fp = fopen("one_input.txt", "r");
-  if (fp == NULL) {
-    printf("Input file 'one_input.txt' was not found.\n");
-    exit(EXIT_FAILURE);
-  }
+  open_file();
   int sum = 0;
   while ((read = getline(&line, &len, fp)) != -1) {
     int num = lineToNumStraight(line) * 10 + lineToNumBackwards(line);

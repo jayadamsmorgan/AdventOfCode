@@ -58,9 +58,9 @@ int main(void) {
   char* line = NULL;
   size_t len = 0;
   ssize_t read;
-  fp = fopen("two_input.txt", "r");
+  fp = fopen("input.txt", "r");
   if (fp == NULL) {
-    printf("Input file 'two_input.txt' was not found.\n");
+    printf("Input file 'input.txt' was not found.\n");
     exit(EXIT_FAILURE);
   }
   int sum = 0;
