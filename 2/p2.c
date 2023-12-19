@@ -1,6 +1,5 @@
-#include "stdio.h"
-#include "stdlib.h"
 #include "string.h"
+#include "../lib/file.h"
 
 #define RED_MAX       12
 #define GREEN_MAX     13
@@ -54,15 +53,7 @@ struct ColorAmount getColorAmount(const char* ca) {
 }
 
 int main(void) {
-  FILE* fp;
-  char* line = NULL;
-  size_t len = 0;
-  ssize_t read;
-  fp = fopen("input.txt", "r");
-  if (fp == NULL) {
-    printf("Input file 'input.txt' was not found.\n");
-    exit(EXIT_FAILURE);
-  }
+  open_file();
   int sum = 0;
   while ((read = getline(&line, &len, fp)) != -1) {
     int numParts = 0;
